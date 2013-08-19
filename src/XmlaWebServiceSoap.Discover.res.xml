@@ -1,0 +1,484 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope
+  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+  xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:ns2="urn:schemas-microsoft-com:xml-analysis:rowset"
+  xmlns:ns4="urn:schemas-microsoft-com:xml-analysis:mddataset"
+  xmlns:ns5="urn:schemas-microsoft-com:xml-analysis:empty"
+  xmlns:ns3="http://www.w3.org/2001/XMLSchema"
+  xmlns:ns6="http://schemas.xmlsoap.org/ws/2002/04/secext"
+  xmlns:ns1="urn:schemas-microsoft-com:xml-analysis">
+ <SOAP-ENV:Header>
+  <ns1:Session SessionId="">
+  </ns1:Session>
+ </SOAP-ENV:Header>
+ <SOAP-ENV:Body>
+  <ns1:DiscoverResponse>
+   <ns1:return>
+    <ns2:root>
+     <xsd:schema></xsd:schema>
+
+      <ns2:CellData>
+       <ns2:Cell CellOrdinal="0">
+        <ns2:Value>0.0</ns2:Value>
+
+
+       </ns2:Cell>
+       <ns2:Cell CellOrdinal="0">
+        <ns2:Value>0.0</ns2:Value>
+
+
+       </ns2:Cell>
+      </ns2:CellData>
+      <ns2:Axes>
+       <ns2:Axis name="">
+
+         <ns2:Tuples>
+         </ns2:Tuples>
+         <ns2:CrossProduct Size="0">
+         </ns2:CrossProduct>
+        
+
+         <ns2:Tuples>
+         </ns2:Tuples>
+         <ns2:CrossProduct Size="0">
+         </ns2:CrossProduct>
+        
+       </ns2:Axis>
+       <ns2:Axis name="">
+
+         <ns2:Tuples>
+         </ns2:Tuples>
+         <ns2:CrossProduct Size="0">
+         </ns2:CrossProduct>
+        
+
+         <ns2:Tuples>
+         </ns2:Tuples>
+         <ns2:CrossProduct Size="0">
+         </ns2:CrossProduct>
+        
+       </ns2:Axis>
+      </ns2:Axes>
+      <ns2:row></ns2:row>
+      <ns2:row></ns2:row>
+      <ns2:OlapInfo>
+       <ns2:CubeInfo>
+        <ns2:Cube>
+         <ns2:CubeName></ns2:CubeName>
+        </ns2:Cube>
+        <ns2:Cube>
+         <ns2:CubeName></ns2:CubeName>
+        </ns2:Cube>
+       </ns2:CubeInfo>
+       <ns2:AxesInfo>
+        <ns2:AxisInfo name="">
+         <ns2:HierarchyInfo name="">
+         </ns2:HierarchyInfo>
+         <ns2:HierarchyInfo name="">
+         </ns2:HierarchyInfo>
+        </ns2:AxisInfo>
+        <ns2:AxisInfo name="">
+         <ns2:HierarchyInfo name="">
+         </ns2:HierarchyInfo>
+         <ns2:HierarchyInfo name="">
+         </ns2:HierarchyInfo>
+        </ns2:AxisInfo>
+       </ns2:AxesInfo>
+       <ns2:CellInfo>
+
+
+       </ns2:CellInfo>
+      </ns2:OlapInfo>
+     
+
+      <ns2:CellData>
+       <ns2:Cell CellOrdinal="0">
+        <ns2:Value>0.0</ns2:Value>
+
+
+       </ns2:Cell>
+       <ns2:Cell CellOrdinal="0">
+        <ns2:Value>0.0</ns2:Value>
+
+
+       </ns2:Cell>
+      </ns2:CellData>
+      <ns2:Axes>
+       <ns2:Axis name="">
+
+         <ns2:Tuples>
+         </ns2:Tuples>
+         <ns2:CrossProduct Size="0">
+         </ns2:CrossProduct>
+        
+
+         <ns2:Tuples>
+         </ns2:Tuples>
+         <ns2:CrossProduct Size="0">
+         </ns2:CrossProduct>
+        
+       </ns2:Axis>
+       <ns2:Axis name="">
+
+         <ns2:Tuples>
+         </ns2:Tuples>
+         <ns2:CrossProduct Size="0">
+         </ns2:CrossProduct>
+        
+
+         <ns2:Tuples>
+         </ns2:Tuples>
+         <ns2:CrossProduct Size="0">
+         </ns2:CrossProduct>
+        
+       </ns2:Axis>
+      </ns2:Axes>
+      <ns2:row></ns2:row>
+      <ns2:row></ns2:row>
+      <ns2:OlapInfo>
+       <ns2:CubeInfo>
+        <ns2:Cube>
+         <ns2:CubeName></ns2:CubeName>
+        </ns2:Cube>
+        <ns2:Cube>
+         <ns2:CubeName></ns2:CubeName>
+        </ns2:Cube>
+       </ns2:CubeInfo>
+       <ns2:AxesInfo>
+        <ns2:AxisInfo name="">
+         <ns2:HierarchyInfo name="">
+         </ns2:HierarchyInfo>
+         <ns2:HierarchyInfo name="">
+         </ns2:HierarchyInfo>
+        </ns2:AxisInfo>
+        <ns2:AxisInfo name="">
+         <ns2:HierarchyInfo name="">
+         </ns2:HierarchyInfo>
+         <ns2:HierarchyInfo name="">
+         </ns2:HierarchyInfo>
+        </ns2:AxisInfo>
+       </ns2:AxesInfo>
+       <ns2:CellInfo>
+
+
+       </ns2:CellInfo>
+      </ns2:OlapInfo>
+     
+    </ns2:root>
+    <ns4:root>
+     <xsd:schema></xsd:schema>
+
+      <ns4:CellData>
+       <ns4:Cell CellOrdinal="0">
+        <ns4:Value>0.0</ns4:Value>
+
+
+       </ns4:Cell>
+       <ns4:Cell CellOrdinal="0">
+        <ns4:Value>0.0</ns4:Value>
+
+
+       </ns4:Cell>
+      </ns4:CellData>
+      <ns4:Axes>
+       <ns4:Axis name="">
+
+         <ns4:Tuples>
+         </ns4:Tuples>
+         <ns4:CrossProduct Size="0">
+         </ns4:CrossProduct>
+        
+
+         <ns4:Tuples>
+         </ns4:Tuples>
+         <ns4:CrossProduct Size="0">
+         </ns4:CrossProduct>
+        
+       </ns4:Axis>
+       <ns4:Axis name="">
+
+         <ns4:Tuples>
+         </ns4:Tuples>
+         <ns4:CrossProduct Size="0">
+         </ns4:CrossProduct>
+        
+
+         <ns4:Tuples>
+         </ns4:Tuples>
+         <ns4:CrossProduct Size="0">
+         </ns4:CrossProduct>
+        
+       </ns4:Axis>
+      </ns4:Axes>
+      <ns4:row>
+
+
+      </ns4:row>
+      <ns4:OlapInfo>
+       <ns4:CubeInfo>
+        <ns4:Cube>
+         <ns4:CubeName></ns4:CubeName>
+        </ns4:Cube>
+        <ns4:Cube>
+         <ns4:CubeName></ns4:CubeName>
+        </ns4:Cube>
+       </ns4:CubeInfo>
+       <ns4:AxesInfo>
+        <ns4:AxisInfo name="">
+         <ns4:HierarchyInfo name="">
+         </ns4:HierarchyInfo>
+         <ns4:HierarchyInfo name="">
+         </ns4:HierarchyInfo>
+        </ns4:AxisInfo>
+        <ns4:AxisInfo name="">
+         <ns4:HierarchyInfo name="">
+         </ns4:HierarchyInfo>
+         <ns4:HierarchyInfo name="">
+         </ns4:HierarchyInfo>
+        </ns4:AxisInfo>
+       </ns4:AxesInfo>
+       <ns4:CellInfo>
+
+
+       </ns4:CellInfo>
+      </ns4:OlapInfo>
+     
+
+      <ns4:CellData>
+       <ns4:Cell CellOrdinal="0">
+        <ns4:Value>0.0</ns4:Value>
+
+
+       </ns4:Cell>
+       <ns4:Cell CellOrdinal="0">
+        <ns4:Value>0.0</ns4:Value>
+
+
+       </ns4:Cell>
+      </ns4:CellData>
+      <ns4:Axes>
+       <ns4:Axis name="">
+
+         <ns4:Tuples>
+         </ns4:Tuples>
+         <ns4:CrossProduct Size="0">
+         </ns4:CrossProduct>
+        
+
+         <ns4:Tuples>
+         </ns4:Tuples>
+         <ns4:CrossProduct Size="0">
+         </ns4:CrossProduct>
+        
+       </ns4:Axis>
+       <ns4:Axis name="">
+
+         <ns4:Tuples>
+         </ns4:Tuples>
+         <ns4:CrossProduct Size="0">
+         </ns4:CrossProduct>
+        
+
+         <ns4:Tuples>
+         </ns4:Tuples>
+         <ns4:CrossProduct Size="0">
+         </ns4:CrossProduct>
+        
+       </ns4:Axis>
+      </ns4:Axes>
+      <ns4:row>
+
+
+      </ns4:row>
+      <ns4:OlapInfo>
+       <ns4:CubeInfo>
+        <ns4:Cube>
+         <ns4:CubeName></ns4:CubeName>
+        </ns4:Cube>
+        <ns4:Cube>
+         <ns4:CubeName></ns4:CubeName>
+        </ns4:Cube>
+       </ns4:CubeInfo>
+       <ns4:AxesInfo>
+        <ns4:AxisInfo name="">
+         <ns4:HierarchyInfo name="">
+         </ns4:HierarchyInfo>
+         <ns4:HierarchyInfo name="">
+         </ns4:HierarchyInfo>
+        </ns4:AxisInfo>
+        <ns4:AxisInfo name="">
+         <ns4:HierarchyInfo name="">
+         </ns4:HierarchyInfo>
+         <ns4:HierarchyInfo name="">
+         </ns4:HierarchyInfo>
+        </ns4:AxisInfo>
+       </ns4:AxesInfo>
+       <ns4:CellInfo>
+
+
+       </ns4:CellInfo>
+      </ns4:OlapInfo>
+     
+    </ns4:root>
+    <ns5:root>
+     <xsd:schema></xsd:schema>
+
+      <ns5:CellData>
+       <ns5:Cell CellOrdinal="0">
+        <ns5:Value>0.0</ns5:Value>
+
+
+       </ns5:Cell>
+       <ns5:Cell CellOrdinal="0">
+        <ns5:Value>0.0</ns5:Value>
+
+
+       </ns5:Cell>
+      </ns5:CellData>
+      <ns5:Axes>
+       <ns5:Axis name="">
+
+         <ns5:Tuples>
+         </ns5:Tuples>
+         <ns5:CrossProduct Size="0">
+         </ns5:CrossProduct>
+        
+
+         <ns5:Tuples>
+         </ns5:Tuples>
+         <ns5:CrossProduct Size="0">
+         </ns5:CrossProduct>
+        
+       </ns5:Axis>
+       <ns5:Axis name="">
+
+         <ns5:Tuples>
+         </ns5:Tuples>
+         <ns5:CrossProduct Size="0">
+         </ns5:CrossProduct>
+        
+
+         <ns5:Tuples>
+         </ns5:Tuples>
+         <ns5:CrossProduct Size="0">
+         </ns5:CrossProduct>
+        
+       </ns5:Axis>
+      </ns5:Axes>
+      <ns5:row>
+
+
+      </ns5:row>
+      <ns5:OlapInfo>
+       <ns5:CubeInfo>
+        <ns5:Cube>
+         <ns5:CubeName></ns5:CubeName>
+        </ns5:Cube>
+        <ns5:Cube>
+         <ns5:CubeName></ns5:CubeName>
+        </ns5:Cube>
+       </ns5:CubeInfo>
+       <ns5:AxesInfo>
+        <ns5:AxisInfo name="">
+         <ns5:HierarchyInfo name="">
+         </ns5:HierarchyInfo>
+         <ns5:HierarchyInfo name="">
+         </ns5:HierarchyInfo>
+        </ns5:AxisInfo>
+        <ns5:AxisInfo name="">
+         <ns5:HierarchyInfo name="">
+         </ns5:HierarchyInfo>
+         <ns5:HierarchyInfo name="">
+         </ns5:HierarchyInfo>
+        </ns5:AxisInfo>
+       </ns5:AxesInfo>
+       <ns5:CellInfo>
+
+
+       </ns5:CellInfo>
+      </ns5:OlapInfo>
+     
+
+      <ns5:CellData>
+       <ns5:Cell CellOrdinal="0">
+        <ns5:Value>0.0</ns5:Value>
+
+
+       </ns5:Cell>
+       <ns5:Cell CellOrdinal="0">
+        <ns5:Value>0.0</ns5:Value>
+
+
+       </ns5:Cell>
+      </ns5:CellData>
+      <ns5:Axes>
+       <ns5:Axis name="">
+
+         <ns5:Tuples>
+         </ns5:Tuples>
+         <ns5:CrossProduct Size="0">
+         </ns5:CrossProduct>
+        
+
+         <ns5:Tuples>
+         </ns5:Tuples>
+         <ns5:CrossProduct Size="0">
+         </ns5:CrossProduct>
+        
+       </ns5:Axis>
+       <ns5:Axis name="">
+
+         <ns5:Tuples>
+         </ns5:Tuples>
+         <ns5:CrossProduct Size="0">
+         </ns5:CrossProduct>
+        
+
+         <ns5:Tuples>
+         </ns5:Tuples>
+         <ns5:CrossProduct Size="0">
+         </ns5:CrossProduct>
+        
+       </ns5:Axis>
+      </ns5:Axes>
+      <ns5:row>
+
+
+      </ns5:row>
+      <ns5:OlapInfo>
+       <ns5:CubeInfo>
+        <ns5:Cube>
+         <ns5:CubeName></ns5:CubeName>
+        </ns5:Cube>
+        <ns5:Cube>
+         <ns5:CubeName></ns5:CubeName>
+        </ns5:Cube>
+       </ns5:CubeInfo>
+       <ns5:AxesInfo>
+        <ns5:AxisInfo name="">
+         <ns5:HierarchyInfo name="">
+         </ns5:HierarchyInfo>
+         <ns5:HierarchyInfo name="">
+         </ns5:HierarchyInfo>
+        </ns5:AxisInfo>
+        <ns5:AxisInfo name="">
+         <ns5:HierarchyInfo name="">
+         </ns5:HierarchyInfo>
+         <ns5:HierarchyInfo name="">
+         </ns5:HierarchyInfo>
+        </ns5:AxisInfo>
+       </ns5:AxesInfo>
+       <ns5:CellInfo>
+
+
+       </ns5:CellInfo>
+      </ns5:OlapInfo>
+     
+    </ns5:root>
+   </ns1:return>
+  </ns1:DiscoverResponse>
+ </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

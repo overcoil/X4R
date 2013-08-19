@@ -1,0 +1,2608 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="urn:schemas-microsoft-com:xml-analysis" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:s1="urn:schemas-microsoft-com:xml-analysis:rowset" xmlns:s3="urn:schemas-microsoft-com:xml-analysis:mddataset" xmlns:s4="urn:schemas-microsoft-com:xml-analysis:empty" xmlns:s5="http://schemas.xmlsoap.org/ws/2002/04/secext" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:tns="urn:schemas-microsoft-com:xml-analysis" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+
+	<wsdl:types>
+
+		<s:schema elementFormDefault="qualified" targetNamespace="urn:schemas-microsoft-com:xml-analysis">
+
+			<s:import namespace="urn:schemas-microsoft-com:xml-analysis:rowset"/>
+
+			<s:import namespace="urn:schemas-microsoft-com:xml-analysis:mddataset"/>
+
+			<s:import namespace="urn:schemas-microsoft-com:xml-analysis:empty"/>
+
+			<s:element name="Execute">
+
+				<s:complexType>
+
+					<s:sequence>
+
+						<s:element maxOccurs="1" minOccurs="1" name="Command" nillable="true" type="tns:CommandStatement"/>
+
+						<s:element maxOccurs="1" minOccurs="1" name="Properties" nillable="true" type="tns:Properties"/>
+
+						<s:element maxOccurs="1" minOccurs="0" name="Parameters" nillable="true" type="tns:Parameters"/>
+
+					</s:sequence>
+
+					<s:anyAttribute namespace="http://schemas.xmlsoap.org/wsdl/soap/" processContents="skip"/>
+
+				</s:complexType>
+
+			</s:element>
+
+			<s:complexType name="CommandStatement">
+
+				<s:sequence>
+
+					<s:element maxOccurs="1" minOccurs="0" name="Statement" type="s:string"/>
+
+				</s:sequence>
+
+
+			</s:complexType>
+
+			<s:complexType name="Properties">
+
+				<s:sequence>
+
+					<s:element maxOccurs="1" minOccurs="0" name="PropertyList" type="tns:PropertyList"/>
+
+				</s:sequence>
+
+			</s:complexType>
+
+			<s:complexType name="PropertyList">
+
+				<s:sequence>
+
+					<s:any maxOccurs="unbounded" minOccurs="0"/>
+
+				</s:sequence>
+
+			</s:complexType>
+
+			<s:complexType name="Parameters">
+
+				<s:sequence>
+
+					<s:any maxOccurs="1" minOccurs="0" name="Statement" type="s:string"/>
+
+				</s:sequence>
+
+			</s:complexType>
+
+			<s:element name="ExecuteResponse">
+
+				<s:complexType>
+
+					<s:sequence>
+
+						<s:element maxOccurs="1" minOccurs="1" name="return" nillable="true" type="tns:ResultSet"/>
+
+					</s:sequence>
+
+					<s:anyAttribute namespace="http://schemas.xmlsoap.org/wsdl/soap/" processContents="skip"/>
+
+				</s:complexType>
+
+
+			</s:element>
+
+			<s:complexType name="ResultSet">
+
+				<s:sequence>
+
+					<s:element maxOccurs="1" minOccurs="0" ref="s1:root"/>
+
+					<s:element maxOccurs="1" minOccurs="0" ref="s3:root"/>
+
+					<s:element maxOccurs="1" minOccurs="0" ref="s4:root"/>
+
+				</s:sequence>
+
+			</s:complexType>
+
+			<s:element name="BeginSession" type="tns:BeginSession"/>
+
+
+			<s:complexType name="BeginSession">
+
+				<s:anyAttribute/>
+
+			</s:complexType>
+
+			<s:element name="Session" type="tns:Session"/>
+
+			<s:complexType name="Session">
+
+				<s:attribute name="SessionId" type="s:string"/>
+
+				<s:anyAttribute/>
+
+			</s:complexType>
+
+			<s:element name="EndSession" type="tns:EndSession"/>
+
+
+			<s:complexType name="EndSession">
+
+				<s:attribute name="SessionId" type="s:string"/>
+
+				<s:anyAttribute/>
+
+			</s:complexType>
+
+			<s:element name="Discover">
+
+				<s:complexType>
+
+					<s:sequence>
+
+						<s:element maxOccurs="1" minOccurs="0" name="RequestType" type="s:string"/>
+
+						<s:element maxOccurs="1" minOccurs="1" name="Restrictions" nillable="false" type="tns:Restrictions"/>
+
+
+						<s:element maxOccurs="1" minOccurs="1" name="Properties" nillable="true" type="tns:Properties"/>
+
+					</s:sequence>
+
+					<s:anyAttribute namespace="http://schemas.xmlsoap.org/wsdl/soap/" processContents="skip"/>
+
+				</s:complexType>
+
+			</s:element>
+
+			<s:complexType name="Restrictions">
+
+				<s:sequence>
+
+					<s:element maxOccurs="1" minOccurs="0" name="RestrictionList" type="tns:RestrictionList"/>
+
+				</s:sequence>
+
+			</s:complexType>
+
+
+			<s:complexType name="RestrictionList">
+
+				<s:sequence>
+
+					<s:any maxOccurs="unbounded" minOccurs="0"/>
+
+				</s:sequence>
+
+			</s:complexType>
+
+			<s:element name="DiscoverResponse">
+
+				<s:complexType>
+
+					<s:sequence>
+
+						<s:element maxOccurs="1" minOccurs="1" name="return" nillable="true" type="tns:ResultSet"/>
+
+					</s:sequence>
+
+					<s:anyAttribute namespace="http://schemas.xmlsoap.org/wsdl/soap/" processContents="skip"/>
+
+				</s:complexType>
+
+			</s:element>
+
+		</s:schema>
+
+		<s:schema elementFormDefault="qualified" targetNamespace="urn:schemas-microsoft-com:xml-analysis:rowset">
+
+			<s:import namespace="http://www.w3.org/2001/XMLSchema"/>
+
+			<s:element name="root" type="s1:ResultXmlRoot"/>
+
+			<s:complexType name="ResultXmlRoot">
+
+				<s:sequence>
+
+
+					<s:element maxOccurs="1" minOccurs="0" ref="s:schema"/>
+
+					<s:choice maxOccurs="unbounded" minOccurs="0">
+
+						<s:element maxOccurs="1" minOccurs="0" name="CellData" type="s1:CellData"/>
+
+						<s:element maxOccurs="1" minOccurs="0" name="Axes" type="s1:Axes"/>
+
+						<s:element maxOccurs="unbounded" minOccurs="0" name="row" type="s1:Row"/>
+
+						<s:element maxOccurs="1" minOccurs="0" name="OlapInfo" type="s1:OlapInfo"/>
+
+					</s:choice>
+
+				</s:sequence>
+
+			</s:complexType>
+
+
+			<s:complexType name="CellData">
+
+				<s:sequence>
+
+					<s:element maxOccurs="unbounded" minOccurs="0" name="Cell" type="s1:Cell"/>
+
+				</s:sequence>
+
+			</s:complexType>
+
+			<s:complexType name="Cell">
+
+				<s:sequence>
+				
+					<s:element maxOccurs="1" minOccurs="0" name="Value" type="s:double"/>
+
+					<s:any maxOccurs="unbounded" minOccurs="0"/>
+
+				</s:sequence>
+
+
+				<s:attribute name="CellOrdinal" type="s:int" use="required"/>
+
+			</s:complexType>
+
+			<s:complexType name="Axes">
+
+				<s:sequence>
+
+					<s:element maxOccurs="unbounded" minOccurs="0" name="Axis" type="s1:Axis"/>
+
+				</s:sequence>
+
+			</s:complexType>
+
+			<s:complexType name="Axis">
+
+				<s:sequence>
+
+
+					<s:choice maxOccurs="unbounded" minOccurs="0">
+
+						<s:element maxOccurs="1" minOccurs="0" name="Tuples" type="s1:Tuples"/>
+
+						<s:element maxOccurs="1" minOccurs="0" name="CrossProduct" type="s1:CrossProduct"/>
+
+					</s:choice>
+
+				</s:sequence>
+
+				<s:attribute name="name" type="s:string"/>
+
+			</s:complexType>
+
+			<s:complexType name="Tuples">
+
+				<s:sequence>
+
+
+					<s:element maxOccurs="unbounded" minOccurs="0" name="Tuple" type="s1:Tuple"/>
+
+				</s:sequence>
+
+			</s:complexType>
+
+			<s:complexType name="Tuple">
+
+				<s:sequence>
+
+					<s:element maxOccurs="unbounded" minOccurs="0" name="Member" type="s1:Member"/>
+
+				</s:sequence>
+
+			</s:complexType>
+
+			<s:complexType name="Member">
+
+
+				<s:sequence>
+				
+					<s:element maxOccurs="1" minOccurs="0" name="UName" type="s:string"/>
+					
+					<s:element maxOccurs="1" minOccurs="0" name="Caption" type="s:string"/>
+					
+					<s:element maxOccurs="1" minOccurs="0" name="LName" type="s:string"/>
+					
+					<s:element maxOccurs="1" minOccurs="0" name="LNum" type="s:string"/>
+					
+					<s:element maxOccurs="1" minOccurs="0" name="DisplayInfo" type="s:string"/>
+
+					<s:any maxOccurs="unbounded" minOccurs="0"/>
+
+				</s:sequence>
+
+				<s:attribute name="Hierarchy" type="s:string"/>
+
+			</s:complexType>
+
+			<s:complexType name="CrossProduct">
+
+				<s:sequence>
+
+					<s:element maxOccurs="unbounded" minOccurs="0" name="Members" type="s1:Members"/>
+
+				</s:sequence>
+
+
+				<s:attribute name="Size" type="s:int" use="required"/>
+
+			</s:complexType>
+
+			<s:complexType name="Members">
+
+				<s:sequence>
+
+					<s:element maxOccurs="unbounded" minOccurs="0" name="Member" type="s1:Member"/>
+
+				</s:sequence>
+
+				<s:attribute name="Hierarchy" type="s:string"/>
+
+			</s:complexType>
+
+			<s:complexType name="Row">
+
+
+				<s:sequence>
+
+					<s:any maxOccurs="unbounded" minOccurs="0"/>
+
+				</s:sequence>
+
+			</s:complexType>
+
+			<s:complexType name="OlapInfo">
+
+				<s:sequence>
+
+					<s:element maxOccurs="1" minOccurs="0" name="CubeInfo" type="s1:CubeInfo"/>
+
+					<s:element maxOccurs="1" minOccurs="0" name="AxesInfo" type="s1:AxesInfo"/>
+
+					<s:element maxOccurs="1" minOccurs="0" name="CellInfo" type="s1:CellInfo"/>
+
+
+				</s:sequence>
+
+			</s:complexType>
+
+			<s:complexType name="CubeInfo">
+
+				<s:sequence>
+
+					<s:element maxOccurs="unbounded" minOccurs="0" name="Cube" type="s1:Cube"/>
+
+				</s:sequence>
+
+			</s:complexType>
+
+			<s:complexType name="Cube">
+
+				<s:sequence>
+
+
+					<s:element maxOccurs="1" minOccurs="0" name="CubeName" type="s:string"/>
+
+				</s:sequence>
+
+			</s:complexType>
+
+			<s:complexType name="AxesInfo">
+
+				<s:sequence>
+
+					<s:element maxOccurs="unbounded" minOccurs="0" name="AxisInfo" type="s1:AxisInfo"/>
+
+				</s:sequence>
+
+			</s:complexType>
+
+			<s:complexType name="AxisInfo">
+
+
+				<s:sequence>
+
+					<s:element maxOccurs="unbounded" minOccurs="0" name="HierarchyInfo" type="s1:HierarchyInfo"/>
+
+				</s:sequence>
+
+				<s:attribute name="name" type="s:string"/>
+
+			</s:complexType>
+
+			<s:complexType name="HierarchyInfo">
+
+				<s:sequence>
+
+					<s:any maxOccurs="unbounded" minOccurs="0"/>
+
+				</s:sequence>
+
+
+				<s:attribute name="name" type="s:string"/>
+
+			</s:complexType>
+
+			<s:complexType name="CellInfo">
+
+				<s:sequence>
+
+					<s:any maxOccurs="unbounded" minOccurs="0"/>
+
+				</s:sequence>
+
+			</s:complexType>
+
+		</s:schema>
+
+		<s:schema elementFormDefault="qualified" targetNamespace="http://www.w3.org/2001/XMLSchema">
+
+
+			<s:import namespace="http://www.w3.org/XML/1998/namespace"/>
+
+			<s:element name="schema" type="s:XmlSchema"/>
+
+			<s:complexType name="XmlSchema">
+
+				<s:complexContent mixed="false">
+
+					<s:extension base="s:XmlSchemaObject">
+
+						<s:sequence>
+
+							<s:choice maxOccurs="unbounded" minOccurs="0">
+
+								<s:element maxOccurs="1" minOccurs="0" name="include" type="s:XmlSchemaInclude"/>
+
+								<s:element maxOccurs="1" minOccurs="0" name="redefine" type="s:XmlSchemaRedefine"/>
+
+
+								<s:element maxOccurs="1" minOccurs="0" name="import" type="s:XmlSchemaImport"/>
+
+							</s:choice>
+
+							<s:choice maxOccurs="unbounded" minOccurs="0">
+
+								<s:element maxOccurs="1" minOccurs="0" name="notation" type="s:XmlSchemaNotation"/>
+
+								<s:element maxOccurs="1" minOccurs="0" name="group" type="s:XmlSchemaGroup"/>
+
+								<s:element maxOccurs="1" minOccurs="0" name="annotation" type="s:XmlSchemaAnnotation"/>
+
+								<s:element maxOccurs="1" minOccurs="0" name="attribute" type="s:XmlSchemaAttribute"/>
+
+								<s:element maxOccurs="1" minOccurs="0" name="attributeGroup" type="s:XmlSchemaAttributeGroup"/>
+
+								<s:element maxOccurs="1" minOccurs="0" name="complexType" type="s:XmlSchemaComplexType"/>
+
+
+								<s:element maxOccurs="1" minOccurs="0" name="simpleType" type="s:XmlSchemaSimpleType"/>
+
+								<s:element maxOccurs="1" minOccurs="0" name="element" type="s:XmlSchemaElement"/>
+
+							</s:choice>
+
+						</s:sequence>
+
+						<s:attribute name="attributeFormDefault" type="s:XmlSchemaForm"/>
+
+						<s:attribute name="blockDefault" type="s:XmlSchemaDerivationMethod"/>
+
+						<s:attribute name="finalDefault" type="s:XmlSchemaDerivationMethod"/>
+
+						<s:attribute name="elementFormDefault" type="s:XmlSchemaForm"/>
+
+						<s:attribute name="targetNamespace" type="s:anyURI"/>
+
+
+						<s:attribute name="version" type="s:token"/>
+
+						<s:attribute name="id" type="s:ID"/>
+
+						<s:anyAttribute/>
+
+					</s:extension>
+
+				</s:complexContent>
+
+			</s:complexType>
+
+			<s:complexType abstract="true" name="XmlSchemaObject">
+
+				<s:annotation>
+
+					<s:appinfo>
+
+
+						<keepNamespaceDeclarations>
+
+							Namespaces
+						</keepNamespaceDeclarations>
+
+					</s:appinfo>
+
+				</s:annotation>
+
+			</s:complexType>
+
+			<s:complexType name="XmlSchemaAnnotated">
+
+				<s:complexContent mixed="false">
+
+					<s:extension base="s:XmlSchemaObject">
+
+						<s:sequence>
+
+
+							<s:element maxOccurs="1" minOccurs="0" name="annotation" type="s:XmlSchemaAnnotation"/>
+
+						</s:sequence>
+
+						<s:attribute name="id" type="s:ID"/>
+
+						<s:anyAttribute/>
+
+					</s:extension>
+
+				</s:complexContent>
+
+			</s:complexType>
+
+			<s:complexType name="XmlSchemaAnnotation">
+
+				<s:complexContent mixed="false">
+
+
+					<s:extension base="s:XmlSchemaObject">
+
+						<s:sequence>
+
+							<s:choice maxOccurs="unbounded" minOccurs="0">
+
+								<s:element maxOccurs="1" minOccurs="0" name="documentation" type="s:XmlSchemaDocumentation"/>
+
+								<s:element maxOccurs="1" minOccurs="0" name="appinfo" type="s:XmlSchemaAppInfo"/>
+
+							</s:choice>
+
+						</s:sequence>
+
+						<s:attribute name="id" type="s:ID"/>
+
+						<s:anyAttribute/>
+
+
+					</s:extension>
+
+				</s:complexContent>
+
+			</s:complexType>
+
+			<s:complexType mixed="true" name="XmlSchemaDocumentation">
+
+				<s:complexContent mixed="false">
+
+					<s:extension base="s:XmlSchemaObject">
+
+						<s:sequence>
+
+							<s:any maxOccurs="unbounded" minOccurs="0"/>
+
+						</s:sequence>
+
+
+						<s:attribute name="source" type="s:anyURI"/>
+
+						<s:attribute ref="xml:lang" use="optional"/>
+
+					</s:extension>
+
+				</s:complexContent>
+
+			</s:complexType>
+
+			<s:complexType mixed="true" name="XmlSchemaAppInfo">
+
+				<s:complexContent mixed="false">
+
+					<s:extension base="s:XmlSchemaObject">
+
+						<s:sequence>
+
+
+							<s:any maxOccurs="unbounded" minOccurs="0"/>
+
+						</s:sequence>
+
+						<s:attribute name="source" type="s:anyURI"/>
+
+					</s:extension>
+
+				</s:complexContent>
+
+			</s:complexType>
+
+			<s:complexType name="XmlSchemaNotation">
+
+				<s:complexContent mixed="false">
+
+					<s:extension base="s:XmlSchemaAnnotated">
+
+
+						<s:attribute name="name" type="s:string"/>
+
+						<s:attribute name="public" type="s:string"/>
+
+						<s:attribute name="system" type="s:string"/>
+
+					</s:extension>
+
+				</s:complexContent>
+
+			</s:complexType>
+
+			<s:complexType name="XmlSchemaAttributeGroup">
+
+				<s:complexContent mixed="false">
+
+					<s:extension base="s:XmlSchemaAnnotated">
+
+
+						<s:sequence>
+
+							<s:choice maxOccurs="unbounded" minOccurs="0">
+
+								<s:element maxOccurs="1" minOccurs="0" name="attributeGroup" type="s:XmlSchemaAttributeGroupRef"/>
+
+								<s:element maxOccurs="1" minOccurs="0" name="attribute" type="s:XmlSchemaAttribute"/>
+
+							</s:choice>
+
+							<s:element maxOccurs="1" minOccurs="0" name="anyAttribute" type="s:XmlSchemaAnyAttribute"/>
+
+						</s:sequence>
+
+						<s:attribute name="name" type="s:string"/>
+
+					</s:extension>
+
+
+				</s:complexContent>
+
+			</s:complexType>
+
+			<s:complexType name="XmlSchemaAttributeGroupRef">
+
+				<s:complexContent mixed="false">
+
+					<s:extension base="s:XmlSchemaAnnotated">
+
+						<s:attribute name="ref" type="s:QName"/>
+
+					</s:extension>
+
+				</s:complexContent>
+
+			</s:complexType>
+
+
+			<s:complexType name="XmlSchemaAttribute">
+
+				<s:complexContent mixed="false">
+
+					<s:extension base="s:XmlSchemaAnnotated">
+
+						<s:sequence>
+
+							<s:element maxOccurs="1" minOccurs="0" name="simpleType" type="s:XmlSchemaSimpleType"/>
+
+						</s:sequence>
+
+						<s:attribute name="default" type="s:string"/>
+
+						<s:attribute name="fixed" type="s:string"/>
+
+						<s:attribute name="form" type="s:XmlSchemaForm"/>
+
+
+						<s:attribute name="name" type="s:string"/>
+
+						<s:attribute name="ref" type="s:QName"/>
+
+						<s:attribute name="type" type="s:QName"/>
+
+						<s:attribute name="use" type="s:XmlSchemaUse"/>
+
+					</s:extension>
+
+				</s:complexContent>
+
+			</s:complexType>
+
+			<s:complexType name="XmlSchemaSimpleType">
+
+				<s:complexContent mixed="false">
+
+
+					<s:extension base="s:XmlSchemaType">
+
+						<s:sequence>
+
+							<s:choice maxOccurs="1" minOccurs="1">
+
+								<s:element maxOccurs="1" minOccurs="0" name="union" type="s:XmlSchemaSimpleTypeUnion"/>
+
+								<s:element maxOccurs="1" minOccurs="0" name="list" type="s:XmlSchemaSimpleTypeList"/>
+
+								<s:element maxOccurs="1" minOccurs="0" name="restriction" type="s:XmlSchemaSimpleTypeRestriction"/>
+
+							</s:choice>
+
+						</s:sequence>
+
+					</s:extension>
+
+
+				</s:complexContent>
+
+			</s:complexType>
+
+			<s:complexType name="XmlSchemaType">
+
+				<s:complexContent mixed="false">
+
+					<s:extension base="s:XmlSchemaAnnotated">
+
+						<s:attribute name="name" type="s:string"/>
+
+						<s:attribute name="final" type="s:XmlSchemaDerivationMethod"/>
+
+					</s:extension>
+
+				</s:complexContent>
+
+
+			</s:complexType>
+
+			<s:simpleType name="XmlSchemaDerivationMethod">
+
+				<s:list>
+
+					<s:simpleType>
+
+						<s:restriction base="s:string">
+
+							<s:enumeration value=""/>
+
+							<s:enumeration value="substitution"/>
+
+							<s:enumeration value="extension"/>
+
+							<s:enumeration value="restriction"/>
+
+
+							<s:enumeration value="list"/>
+
+							<s:enumeration value="union"/>
+
+							<s:enumeration value="#all"/>
+
+						</s:restriction>
+
+					</s:simpleType>
+
+				</s:list>
+
+			</s:simpleType>
+
+			<s:complexType name="XmlSchemaComplexType">
+
+				<s:complexContent mixed="false">
+
+
+					<s:extension base="s:XmlSchemaType">
+
+						<s:sequence>
+
+							<s:choice maxOccurs="1" minOccurs="1">
+
+								<s:element maxOccurs="1" minOccurs="0" name="simpleContent" type="s:XmlSchemaSimpleContent"/>
+
+								<s:element maxOccurs="1" minOccurs="0" name="complexContent" type="s:XmlSchemaComplexContent"/>
+
+							</s:choice>
+
+							<s:choice maxOccurs="1" minOccurs="1">
+
+								<s:element maxOccurs="1" minOccurs="0" name="group" type="s:XmlSchemaGroupRef"/>
+
+								<s:element maxOccurs="1" minOccurs="0" name="sequence" type="s:XmlSchemaSequence"/>
+
+
+								<s:element maxOccurs="1" minOccurs="0" name="choice" type="s:XmlSchemaChoice"/>
+
+								<s:element maxOccurs="1" minOccurs="0" name="all" type="s:XmlSchemaAll"/>
+
+							</s:choice>
+
+							<s:choice maxOccurs="unbounded" minOccurs="0">
+
+								<s:element maxOccurs="1" minOccurs="0" name="attributeGroup" type="s:XmlSchemaAttributeGroupRef"/>
+
+								<s:element maxOccurs="1" minOccurs="0" name="attribute" type="s:XmlSchemaAttribute"/>
+
+							</s:choice>
+
+							<s:element maxOccurs="1" minOccurs="0" name="anyAttribute" type="s:XmlSchemaAnyAttribute"/>
+
+						</s:sequence>
+
+
+						<s:attribute default="false" name="abstract" type="s:boolean"/>
+
+						<s:attribute name="block" type="s:XmlSchemaDerivationMethod"/>
+
+						<s:attribute default="false" name="mixed" type="s:boolean"/>
+
+					</s:extension>
+
+				</s:complexContent>
+
+			</s:complexType>
+
+			<s:complexType name="XmlSchemaSimpleContent">
+
+				<s:complexContent mixed="false">
+
+					<s:extension base="s:XmlSchemaContentModel">
+
+
+						<s:sequence>
+
+							<s:choice maxOccurs="1" minOccurs="1">
+
+								<s:element maxOccurs="1" minOccurs="0" name="restriction" type="s:XmlSchemaSimpleContentRestriction"/>
+
+								<s:element maxOccurs="1" minOccurs="0" name="extension" type="s:XmlSchemaSimpleContentExtension"/>
+
+							</s:choice>
+
+						</s:sequence>
+
+					</s:extension>
+
+				</s:complexContent>
+
+			</s:complexType>
+
+
+			<s:complexType abstract="true" name="XmlSchemaContentModel">
+
+				<s:complexContent mixed="false">
+
+					<s:extension base="s:XmlSchemaAnnotated"/>
+
+				</s:complexContent>
+
+			</s:complexType>
+
+			<s:complexType name="XmlSchemaComplexContent">
+
+				<s:complexContent mixed="false">
+
+					<s:extension base="s:XmlSchemaContentModel">
+
+						<s:sequence>
+
+
+							<s:choice maxOccurs="1" minOccurs="1">
+
+								<s:element maxOccurs="1" minOccurs="0" name="restriction" type="s:XmlSchemaComplexContentRestriction"/>
+
+								<s:element maxOccurs="1" minOccurs="0" name="extension" type="s:XmlSchemaComplexContentExtension"/>
+
+							</s:choice>
+
+						</s:sequence>
+
+						<s:attribute name="mixed" type="s:boolean" use="required"/>
+
+					</s:extension>
+
+				</s:complexContent>
+
+			</s:complexType>
+
+
+			<s:complexType name="XmlSchemaComplexContentRestriction">
+
+				<s:complexContent mixed="false">
+
+					<s:extension base="s:XmlSchemaContent">
+
+						<s:sequence>
+
+							<s:choice maxOccurs="1" minOccurs="1">
+
+								<s:element maxOccurs="1" minOccurs="0" name="all" type="s:XmlSchemaAll"/>
+
+								<s:element maxOccurs="1" minOccurs="0" name="group" type="s:XmlSchemaGroupRef"/>
+
+								<s:element maxOccurs="1" minOccurs="0" name="choice" type="s:XmlSchemaChoice"/>
+
+								<s:element maxOccurs="1" minOccurs="0" name="sequence" type="s:XmlSchemaSequence"/>
+
+
+							</s:choice>
+
+							<s:choice maxOccurs="unbounded" minOccurs="0">
+
+								<s:element maxOccurs="1" minOccurs="0" name="attributeGroup" type="s:XmlSchemaAttributeGroupRef"/>
+
+								<s:element maxOccurs="1" minOccurs="0" name="attribute" type="s:XmlSchemaAttribute"/>
+
+							</s:choice>
+
+							<s:element maxOccurs="1" minOccurs="0" name="anyAttribute" type="s:XmlSchemaAnyAttribute"/>
+
+						</s:sequence>
+
+						<s:attribute name="base" type="s:QName"/>
+
+					</s:extension>
+
+
+				</s:complexContent>
+
+			</s:complexType>
+
+			<s:complexType abstract="true" name="XmlSchemaContent">
+
+				<s:complexContent mixed="false">
+
+					<s:extension base="s:XmlSchemaAnnotated"/>
+
+				</s:complexContent>
+
+			</s:complexType>
+
+			<s:complexType name="XmlSchemaComplexContentExtension">
+
+				<s:complexContent mixed="false">
+
+
+					<s:extension base="s:XmlSchemaContent">
+
+						<s:sequence>
+
+							<s:choice maxOccurs="1" minOccurs="1">
+
+								<s:element maxOccurs="1" minOccurs="0" name="group" type="s:XmlSchemaGroupRef"/>
+
+								<s:element maxOccurs="1" minOccurs="0" name="all" type="s:XmlSchemaAll"/>
+
+								<s:element maxOccurs="1" minOccurs="0" name="sequence" type="s:XmlSchemaSequence"/>
+
+								<s:element maxOccurs="1" minOccurs="0" name="choice" type="s:XmlSchemaChoice"/>
+
+							</s:choice>
+
+							<s:choice maxOccurs="unbounded" minOccurs="0">
+
+
+								<s:element maxOccurs="1" minOccurs="0" name="attributeGroup" type="s:XmlSchemaAttributeGroupRef"/>
+
+								<s:element maxOccurs="1" minOccurs="0" name="attribute" type="s:XmlSchemaAttribute"/>
+
+							</s:choice>
+
+							<s:element maxOccurs="1" minOccurs="0" name="anyAttribute" type="s:XmlSchemaAnyAttribute"/>
+
+						</s:sequence>
+
+						<s:attribute name="base" type="s:QName"/>
+
+					</s:extension>
+
+				</s:complexContent>
+
+			</s:complexType>
+
+
+			<s:complexType name="XmlSchemaGroupRef">
+
+				<s:complexContent mixed="false">
+
+					<s:extension base="s:XmlSchemaParticle">
+
+						<s:attribute name="ref" type="s:QName"/>
+
+					</s:extension>
+
+				</s:complexContent>
+
+			</s:complexType>
+
+			<s:complexType abstract="true" name="XmlSchemaParticle">
+
+				<s:complexContent mixed="false">
+
+
+					<s:extension base="s:XmlSchemaAnnotated">
+
+						<s:attribute name="minOccurs" type="s:string"/>
+
+						<s:attribute name="maxOccurs" type="s:string"/>
+
+					</s:extension>
+
+				</s:complexContent>
+
+			</s:complexType>
+
+			<s:complexType name="XmlSchemaElement">
+
+				<s:complexContent mixed="false">
+
+					<s:extension base="s:XmlSchemaParticle">
+
+
+						<s:sequence>
+
+							<s:choice maxOccurs="1" minOccurs="1">
+
+								<s:element maxOccurs="1" minOccurs="0" name="simpleType" type="s:XmlSchemaSimpleType"/>
+
+								<s:element maxOccurs="1" minOccurs="0" name="complexType" type="s:XmlSchemaComplexType"/>
+
+							</s:choice>
+
+							<s:choice maxOccurs="unbounded" minOccurs="0">
+
+								<s:element maxOccurs="1" minOccurs="0" name="unique" type="s:XmlSchemaUnique"/>
+
+								<s:element maxOccurs="1" minOccurs="0" name="key" type="s:XmlSchemaKey"/>
+
+								<s:element maxOccurs="1" minOccurs="0" name="keyref" type="s:XmlSchemaKeyref"/>
+
+
+							</s:choice>
+
+						</s:sequence>
+
+						<s:attribute default="false" name="abstract" type="s:boolean"/>
+
+						<s:attribute name="block" type="s:XmlSchemaDerivationMethod"/>
+
+						<s:attribute name="default" type="s:string"/>
+
+						<s:attribute name="final" type="s:XmlSchemaDerivationMethod"/>
+
+						<s:attribute name="fixed" type="s:string"/>
+
+						<s:attribute name="form" type="s:XmlSchemaForm"/>
+
+						<s:attribute default="" name="name" type="s:string"/>
+
+
+						<s:attribute default="false" name="nillable" type="s:boolean"/>
+
+						<s:attribute name="ref" type="s:QName"/>
+
+						<s:attribute name="substitutionGroup" type="s:QName"/>
+
+						<s:attribute name="type" type="s:QName"/>
+
+					</s:extension>
+
+				</s:complexContent>
+
+			</s:complexType>
+
+			<s:complexType name="XmlSchemaUnique">
+
+				<s:complexContent mixed="false">
+
+
+					<s:extension base="s:XmlSchemaIdentityConstraint"/>
+
+				</s:complexContent>
+
+			</s:complexType>
+
+			<s:complexType name="XmlSchemaIdentityConstraint">
+
+				<s:complexContent mixed="false">
+
+					<s:extension base="s:XmlSchemaAnnotated">
+
+						<s:sequence>
+
+							<s:element maxOccurs="1" minOccurs="0" name="selector" type="s:XmlSchemaXPath"/>
+
+							<s:element maxOccurs="unbounded" minOccurs="0" name="field" type="s:XmlSchemaXPath"/>
+
+
+						</s:sequence>
+
+						<s:attribute name="name" type="s:string"/>
+
+					</s:extension>
+
+				</s:complexContent>
+
+			</s:complexType>
+
+			<s:complexType name="XmlSchemaXPath">
+
+				<s:complexContent mixed="false">
+
+					<s:extension base="s:XmlSchemaAnnotated">
+
+						<s:attribute default="" name="xpath" type="s:string"/>
+
+
+					</s:extension>
+
+				</s:complexContent>
+
+			</s:complexType>
+
+			<s:complexType name="XmlSchemaKeyref">
+
+				<s:complexContent mixed="false">
+
+					<s:extension base="s:XmlSchemaIdentityConstraint">
+
+						<s:attribute name="refer" type="s:QName"/>
+
+					</s:extension>
+
+				</s:complexContent>
+
+
+			</s:complexType>
+
+			<s:complexType name="XmlSchemaKey">
+
+				<s:complexContent mixed="false">
+
+					<s:extension base="s:XmlSchemaIdentityConstraint"/>
+
+				</s:complexContent>
+
+			</s:complexType>
+
+			<s:simpleType name="XmlSchemaForm">
+
+				<s:restriction base="s:string">
+
+					<s:enumeration value="qualified"/>
+
+
+					<s:enumeration value="unqualified"/>
+
+				</s:restriction>
+
+			</s:simpleType>
+
+			<s:complexType name="XmlSchemaAny">
+
+				<s:complexContent mixed="false">
+
+					<s:extension base="s:XmlSchemaParticle">
+
+						<s:attribute name="namespace" type="s:string"/>
+
+						<s:attribute name="processContents" type="s:XmlSchemaContentProcessing"/>
+
+					</s:extension>
+
+
+				</s:complexContent>
+
+			</s:complexType>
+
+			<s:simpleType name="XmlSchemaContentProcessing">
+
+				<s:restriction base="s:string">
+
+					<s:enumeration value="skip"/>
+
+					<s:enumeration value="lax"/>
+
+					<s:enumeration value="strict"/>
+
+				</s:restriction>
+
+			</s:simpleType>
+
+
+			<s:complexType abstract="true" name="XmlSchemaGroupBase">
+
+				<s:complexContent mixed="false">
+
+					<s:extension base="s:XmlSchemaParticle"/>
+
+				</s:complexContent>
+
+			</s:complexType>
+
+			<s:complexType name="XmlSchemaChoice">
+
+				<s:complexContent mixed="false">
+
+					<s:extension base="s:XmlSchemaGroupBase">
+
+						<s:sequence>
+
+
+							<s:choice maxOccurs="unbounded" minOccurs="0">
+
+								<s:element maxOccurs="1" minOccurs="0" name="any" type="s:XmlSchemaAny"/>
+
+								<s:element maxOccurs="1" minOccurs="0" name="choice" type="s:XmlSchemaChoice"/>
+
+								<s:element maxOccurs="1" minOccurs="0" name="sequence" type="s:XmlSchemaSequence"/>
+
+								<s:element maxOccurs="1" minOccurs="0" name="element" type="s:XmlSchemaElement"/>
+
+								<s:element maxOccurs="1" minOccurs="0" name="group" type="s:XmlSchemaGroupRef"/>
+
+							</s:choice>
+
+						</s:sequence>
+
+					</s:extension>
+
+
+				</s:complexContent>
+
+			</s:complexType>
+
+			<s:complexType name="XmlSchemaSequence">
+
+				<s:complexContent mixed="false">
+
+					<s:extension base="s:XmlSchemaGroupBase">
+
+						<s:sequence>
+
+							<s:choice maxOccurs="unbounded" minOccurs="0">
+
+								<s:element maxOccurs="1" minOccurs="0" name="group" type="s:XmlSchemaGroupRef"/>
+
+								<s:element maxOccurs="1" minOccurs="0" name="any" type="s:XmlSchemaAny"/>
+
+
+								<s:element maxOccurs="1" minOccurs="0" name="sequence" type="s:XmlSchemaSequence"/>
+
+								<s:element maxOccurs="1" minOccurs="0" name="element" type="s:XmlSchemaElement"/>
+
+								<s:element maxOccurs="1" minOccurs="0" name="choice" type="s:XmlSchemaChoice"/>
+
+							</s:choice>
+
+						</s:sequence>
+
+					</s:extension>
+
+				</s:complexContent>
+
+			</s:complexType>
+
+			<s:complexType name="XmlSchemaAll">
+
+
+				<s:complexContent mixed="false">
+
+					<s:extension base="s:XmlSchemaGroupBase">
+
+						<s:sequence>
+
+							<s:element maxOccurs="unbounded" minOccurs="0" name="element" type="s:XmlSchemaElement"/>
+
+						</s:sequence>
+
+					</s:extension>
+
+				</s:complexContent>
+
+			</s:complexType>
+
+			<s:complexType name="XmlSchemaAnyAttribute">
+
+
+				<s:complexContent mixed="false">
+
+					<s:extension base="s:XmlSchemaAnnotated">
+
+						<s:attribute name="namespace" type="s:string"/>
+
+						<s:attribute name="processContents" type="s:XmlSchemaContentProcessing"/>
+
+					</s:extension>
+
+				</s:complexContent>
+
+			</s:complexType>
+
+			<s:complexType name="XmlSchemaSimpleContentExtension">
+
+				<s:complexContent mixed="false">
+
+
+					<s:extension base="s:XmlSchemaContent">
+
+						<s:sequence>
+
+							<s:choice maxOccurs="unbounded" minOccurs="0">
+
+								<s:element maxOccurs="1" minOccurs="0" name="attribute" type="s:XmlSchemaAttribute"/>
+
+								<s:element maxOccurs="1" minOccurs="0" name="attributeGroup" type="s:XmlSchemaAttributeGroupRef"/>
+
+							</s:choice>
+
+							<s:element maxOccurs="1" minOccurs="0" name="anyAttribute" type="s:XmlSchemaAnyAttribute"/>
+
+						</s:sequence>
+
+						<s:attribute name="base" type="s:QName"/>
+
+
+					</s:extension>
+
+				</s:complexContent>
+
+			</s:complexType>
+
+			<s:complexType name="XmlSchemaSimpleContentRestriction">
+
+				<s:complexContent mixed="false">
+
+					<s:extension base="s:XmlSchemaContent">
+
+						<s:sequence>
+
+							<s:element maxOccurs="1" minOccurs="0" name="simpleType" type="s:XmlSchemaSimpleType"/>
+
+							<s:choice maxOccurs="unbounded" minOccurs="0">
+
+
+								<s:element maxOccurs="1" minOccurs="0" name="minExclusive" type="s:XmlSchemaMinExclusiveFacet"/>
+
+								<s:element maxOccurs="1" minOccurs="0" name="enumeration" type="s:XmlSchemaEnumerationFacet"/>
+
+								<s:element maxOccurs="1" minOccurs="0" name="maxInclusive" type="s:XmlSchemaMaxInclusiveFacet"/>
+
+								<s:element maxOccurs="1" minOccurs="0" name="length" type="s:XmlSchemaLengthFacet"/>
+
+								<s:element maxOccurs="1" minOccurs="0" name="minLength" type="s:XmlSchemaMinLengthFacet"/>
+
+								<s:element maxOccurs="1" minOccurs="0" name="maxLength" type="s:XmlSchemaMaxLengthFacet"/>
+
+								<s:element maxOccurs="1" minOccurs="0" name="pattern" type="s:XmlSchemaPatternFacet"/>
+
+								<s:element maxOccurs="1" minOccurs="0" name="maxExclusive" type="s:XmlSchemaMaxExclusiveFacet"/>
+
+								<s:element maxOccurs="1" minOccurs="0" name="minInclusive" type="s:XmlSchemaMinInclusiveFacet"/>
+
+
+								<s:element maxOccurs="1" minOccurs="0" name="whiteSpace" type="s:XmlSchemaWhiteSpaceFacet"/>
+
+								<s:element maxOccurs="1" minOccurs="0" name="totalDigits" type="s:XmlSchemaTotalDigitsFacet"/>
+
+								<s:element maxOccurs="1" minOccurs="0" name="fractionDigits" type="s:XmlSchemaFractionDigitsFacet"/>
+
+							</s:choice>
+
+							<s:choice maxOccurs="unbounded" minOccurs="0">
+
+								<s:element maxOccurs="1" minOccurs="0" name="attributeGroup" type="s:XmlSchemaAttributeGroupRef"/>
+
+								<s:element maxOccurs="1" minOccurs="0" name="attribute" type="s:XmlSchemaAttribute"/>
+
+							</s:choice>
+
+							<s:element maxOccurs="1" minOccurs="0" name="anyAttribute" type="s:XmlSchemaAnyAttribute"/>
+
+
+						</s:sequence>
+
+						<s:attribute name="base" type="s:QName"/>
+
+					</s:extension>
+
+				</s:complexContent>
+
+			</s:complexType>
+
+			<s:complexType name="XmlSchemaMinExclusiveFacet">
+
+				<s:complexContent mixed="false">
+
+					<s:extension base="s:XmlSchemaFacet"/>
+
+				</s:complexContent>
+
+
+			</s:complexType>
+
+			<s:complexType abstract="true" name="XmlSchemaFacet">
+
+				<s:complexContent mixed="false">
+
+					<s:extension base="s:XmlSchemaAnnotated">
+
+						<s:attribute name="value" type="s:string"/>
+
+						<s:attribute default="false" name="fixed" type="s:boolean"/>
+
+					</s:extension>
+
+				</s:complexContent>
+
+			</s:complexType>
+
+
+			<s:complexType name="XmlSchemaWhiteSpaceFacet">
+
+				<s:complexContent mixed="false">
+
+					<s:extension base="s:XmlSchemaFacet"/>
+
+				</s:complexContent>
+
+			</s:complexType>
+
+			<s:complexType name="XmlSchemaEnumerationFacet">
+
+				<s:complexContent mixed="false">
+
+					<s:extension base="s:XmlSchemaFacet"/>
+
+				</s:complexContent>
+
+
+			</s:complexType>
+
+			<s:complexType name="XmlSchemaPatternFacet">
+
+				<s:complexContent mixed="false">
+
+					<s:extension base="s:XmlSchemaFacet"/>
+
+				</s:complexContent>
+
+			</s:complexType>
+
+			<s:complexType abstract="true" name="XmlSchemaNumericFacet">
+
+				<s:complexContent mixed="false">
+
+					<s:extension base="s:XmlSchemaFacet"/>
+
+
+				</s:complexContent>
+
+			</s:complexType>
+
+			<s:complexType name="XmlSchemaFractionDigitsFacet">
+
+				<s:complexContent mixed="false">
+
+					<s:extension base="s:XmlSchemaNumericFacet"/>
+
+				</s:complexContent>
+
+			</s:complexType>
+
+			<s:complexType name="XmlSchemaTotalDigitsFacet">
+
+				<s:complexContent mixed="false">
+
+
+					<s:extension base="s:XmlSchemaNumericFacet"/>
+
+				</s:complexContent>
+
+			</s:complexType>
+
+			<s:complexType name="XmlSchemaLengthFacet">
+
+				<s:complexContent mixed="false">
+
+					<s:extension base="s:XmlSchemaNumericFacet"/>
+
+				</s:complexContent>
+
+			</s:complexType>
+
+			<s:complexType name="XmlSchemaMaxLengthFacet">
+
+
+				<s:complexContent mixed="false">
+
+					<s:extension base="s:XmlSchemaNumericFacet"/>
+
+				</s:complexContent>
+
+			</s:complexType>
+
+			<s:complexType name="XmlSchemaMinLengthFacet">
+
+				<s:complexContent mixed="false">
+
+					<s:extension base="s:XmlSchemaNumericFacet"/>
+
+				</s:complexContent>
+
+			</s:complexType>
+
+
+			<s:complexType name="XmlSchemaMaxInclusiveFacet">
+
+				<s:complexContent mixed="false">
+
+					<s:extension base="s:XmlSchemaFacet"/>
+
+				</s:complexContent>
+
+			</s:complexType>
+
+			<s:complexType name="XmlSchemaMinInclusiveFacet">
+
+				<s:complexContent mixed="false">
+
+					<s:extension base="s:XmlSchemaFacet"/>
+
+				</s:complexContent>
+
+
+			</s:complexType>
+
+			<s:complexType name="XmlSchemaMaxExclusiveFacet">
+
+				<s:complexContent mixed="false">
+
+					<s:extension base="s:XmlSchemaFacet"/>
+
+				</s:complexContent>
+
+			</s:complexType>
+
+			<s:complexType name="XmlSchemaSimpleTypeUnion">
+
+				<s:complexContent mixed="false">
+
+					<s:extension base="s:XmlSchemaSimpleTypeContent">
+
+
+						<s:sequence>
+
+							<s:element maxOccurs="unbounded" minOccurs="0" name="simpleType" type="s:XmlSchemaSimpleType"/>
+
+						</s:sequence>
+
+						<s:attribute name="memberTypes">
+
+							<s:simpleType>
+
+								<s:list itemType="s:QName"/>
+
+							</s:simpleType>
+
+						</s:attribute>
+
+					</s:extension>
+
+
+				</s:complexContent>
+
+			</s:complexType>
+
+			<s:complexType abstract="true" name="XmlSchemaSimpleTypeContent">
+
+				<s:complexContent mixed="false">
+
+					<s:extension base="s:XmlSchemaAnnotated"/>
+
+				</s:complexContent>
+
+			</s:complexType>
+
+			<s:complexType name="XmlSchemaSimpleTypeRestriction">
+
+				<s:complexContent mixed="false">
+
+
+					<s:extension base="s:XmlSchemaSimpleTypeContent">
+
+						<s:sequence>
+
+							<s:element maxOccurs="1" minOccurs="0" name="simpleType" type="s:XmlSchemaSimpleType"/>
+
+							<s:choice maxOccurs="unbounded" minOccurs="0">
+
+								<s:element maxOccurs="1" minOccurs="0" name="maxExclusive" type="s:XmlSchemaMaxExclusiveFacet"/>
+
+								<s:element maxOccurs="1" minOccurs="0" name="minInclusive" type="s:XmlSchemaMinInclusiveFacet"/>
+
+								<s:element maxOccurs="1" minOccurs="0" name="maxInclusive" type="s:XmlSchemaMaxInclusiveFacet"/>
+
+								<s:element maxOccurs="1" minOccurs="0" name="minExclusive" type="s:XmlSchemaMinExclusiveFacet"/>
+
+								<s:element maxOccurs="1" minOccurs="0" name="minLength" type="s:XmlSchemaMinLengthFacet"/>
+
+
+								<s:element maxOccurs="1" minOccurs="0" name="maxLength" type="s:XmlSchemaMaxLengthFacet"/>
+
+								<s:element maxOccurs="1" minOccurs="0" name="pattern" type="s:XmlSchemaPatternFacet"/>
+
+								<s:element maxOccurs="1" minOccurs="0" name="enumeration" type="s:XmlSchemaEnumerationFacet"/>
+
+								<s:element maxOccurs="1" minOccurs="0" name="length" type="s:XmlSchemaLengthFacet"/>
+
+								<s:element maxOccurs="1" minOccurs="0" name="whiteSpace" type="s:XmlSchemaWhiteSpaceFacet"/>
+
+								<s:element maxOccurs="1" minOccurs="0" name="totalDigits" type="s:XmlSchemaTotalDigitsFacet"/>
+
+								<s:element maxOccurs="1" minOccurs="0" name="fractionDigits" type="s:XmlSchemaFractionDigitsFacet"/>
+
+							</s:choice>
+
+						</s:sequence>
+
+
+						<s:attribute name="base" type="s:QName"/>
+
+					</s:extension>
+
+				</s:complexContent>
+
+			</s:complexType>
+
+			<s:complexType name="XmlSchemaSimpleTypeList">
+
+				<s:complexContent mixed="false">
+
+					<s:extension base="s:XmlSchemaSimpleTypeContent">
+
+						<s:sequence>
+
+							<s:element maxOccurs="1" minOccurs="0" name="simpleType" type="s:XmlSchemaSimpleType"/>
+
+
+						</s:sequence>
+
+						<s:attribute name="itemType" type="s:QName"/>
+
+					</s:extension>
+
+				</s:complexContent>
+
+			</s:complexType>
+
+			<s:simpleType name="XmlSchemaUse">
+
+				<s:restriction base="s:string">
+
+					<s:enumeration value="optional"/>
+
+					<s:enumeration value="prohibited"/>
+
+
+					<s:enumeration value="required"/>
+
+				</s:restriction>
+
+			</s:simpleType>
+
+			<s:complexType name="XmlSchemaGroup">
+
+				<s:complexContent mixed="false">
+
+					<s:extension base="s:XmlSchemaAnnotated">
+
+						<s:sequence>
+
+							<s:choice maxOccurs="1" minOccurs="1">
+
+								<s:element maxOccurs="1" minOccurs="0" name="sequence" type="s:XmlSchemaSequence"/>
+
+
+								<s:element maxOccurs="1" minOccurs="0" name="choice" type="s:XmlSchemaChoice"/>
+
+								<s:element maxOccurs="1" minOccurs="0" name="all" type="s:XmlSchemaAll"/>
+
+							</s:choice>
+
+						</s:sequence>
+
+						<s:attribute name="name" type="s:string"/>
+
+					</s:extension>
+
+				</s:complexContent>
+
+			</s:complexType>
+
+			<s:complexType abstract="true" name="XmlSchemaExternal">
+
+
+				<s:complexContent mixed="false">
+
+					<s:extension base="s:XmlSchemaObject">
+
+						<s:attribute name="schemaLocation" type="s:anyURI"/>
+
+						<s:attribute name="id" type="s:ID"/>
+
+						<s:anyAttribute/>
+
+					</s:extension>
+
+				</s:complexContent>
+
+			</s:complexType>
+
+			<s:complexType name="XmlSchemaImport">
+
+
+				<s:complexContent mixed="false">
+
+					<s:extension base="s:XmlSchemaExternal">
+
+						<s:sequence>
+
+							<s:element maxOccurs="1" minOccurs="0" name="annotation" type="s:XmlSchemaAnnotation"/>
+
+						</s:sequence>
+
+						<s:attribute name="namespace" type="s:anyURI"/>
+
+					</s:extension>
+
+				</s:complexContent>
+
+			</s:complexType>
+
+
+			<s:complexType name="XmlSchemaRedefine">
+
+				<s:complexContent mixed="false">
+
+					<s:extension base="s:XmlSchemaExternal">
+
+						<s:sequence>
+
+							<s:choice maxOccurs="unbounded" minOccurs="0">
+
+								<s:element maxOccurs="1" minOccurs="0" name="group" type="s:XmlSchemaGroup"/>
+
+								<s:element maxOccurs="1" minOccurs="0" name="annotation" type="s:XmlSchemaAnnotation"/>
+
+								<s:element maxOccurs="1" minOccurs="0" name="complexType" type="s:XmlSchemaComplexType"/>
+
+								<s:element maxOccurs="1" minOccurs="0" name="simpleType" type="s:XmlSchemaSimpleType"/>
+
+
+								<s:element maxOccurs="1" minOccurs="0" name="attributeGroup" type="s:XmlSchemaAttributeGroup"/>
+
+							</s:choice>
+
+						</s:sequence>
+
+					</s:extension>
+
+				</s:complexContent>
+
+			</s:complexType>
+
+			<s:complexType name="XmlSchemaInclude">
+
+				<s:complexContent mixed="false">
+
+					<s:extension base="s:XmlSchemaExternal">
+
+
+						<s:sequence>
+
+							<s:element maxOccurs="1" minOccurs="0" name="annotation" type="s:XmlSchemaAnnotation"/>
+
+						</s:sequence>
+
+					</s:extension>
+
+				</s:complexContent>
+
+			</s:complexType>
+
+		</s:schema>
+
+		<s:schema elementFormDefault="qualified" targetNamespace="urn:schemas-microsoft-com:xml-analysis:mddataset">
+
+			<s:import namespace="http://www.w3.org/2001/XMLSchema"/>
+
+
+			<s:element name="root" type="s3:ResultXmlRoot"/>
+
+			<s:complexType name="ResultXmlRoot">
+
+				<s:sequence>
+
+					<s:element maxOccurs="1" minOccurs="0" ref="s:schema"/>
+
+					<s:choice maxOccurs="unbounded" minOccurs="0">
+
+						<s:element maxOccurs="1" minOccurs="0" name="CellData" type="s3:CellData"/>
+
+						<s:element maxOccurs="1" minOccurs="0" name="Axes" type="s3:Axes"/>
+
+						<s:element maxOccurs="1" minOccurs="0" name="row" type="s3:Row"/>
+
+						<s:element maxOccurs="1" minOccurs="0" name="OlapInfo" type="s3:OlapInfo"/>
+
+
+					</s:choice>
+
+				</s:sequence>
+
+			</s:complexType>
+
+			<s:complexType name="CellData">
+
+				<s:sequence>
+
+					<s:element maxOccurs="unbounded" minOccurs="0" name="Cell" type="s3:Cell"/>
+
+				</s:sequence>
+
+			</s:complexType>
+
+			<s:complexType name="Cell">
+
+
+				<s:sequence>
+					
+					
+					<s:element maxOccurs="1" minOccurs="0" name="Value" type="s:double"/>					
+
+					<s:any maxOccurs="unbounded" minOccurs="0"/>
+
+				</s:sequence>
+
+				<s:attribute name="CellOrdinal" type="s:int" use="required"/>
+
+			</s:complexType>
+
+			<s:complexType name="Axes">
+
+				<s:sequence>
+
+					<s:element maxOccurs="unbounded" minOccurs="0" name="Axis" type="s3:Axis"/>
+
+				</s:sequence>
+
+
+			</s:complexType>
+
+			<s:complexType name="Axis">
+
+				<s:sequence>
+
+					<s:choice maxOccurs="unbounded" minOccurs="0">
+
+						<s:element maxOccurs="1" minOccurs="0" name="Tuples" type="s3:Tuples"/>
+
+						<s:element maxOccurs="1" minOccurs="0" name="CrossProduct" type="s3:CrossProduct"/>
+
+					</s:choice>
+
+				</s:sequence>
+
+				<s:attribute name="name" type="s:string"/>
+
+
+			</s:complexType>
+
+			<s:complexType name="Tuples">
+
+				<s:sequence>
+
+					<s:element maxOccurs="unbounded" minOccurs="0" name="Tuple" type="s3:Tuple"/>
+
+				</s:sequence>
+
+			</s:complexType>
+
+			<s:complexType name="Tuple">
+
+				<s:sequence>
+
+					<s:element maxOccurs="unbounded" minOccurs="0" name="Member" type="s3:Member"/>
+
+
+				</s:sequence>
+
+			</s:complexType>
+
+			<s:complexType name="Member">
+
+				<s:sequence>
+				
+					<s:element maxOccurs="1" minOccurs="0" name="UName" type="s:string"/>
+					
+					<s:element maxOccurs="1" minOccurs="0" name="Caption" type="s:string"/>
+					
+					<s:element maxOccurs="1" minOccurs="0" name="LName" type="s:string"/>
+					
+					<s:element maxOccurs="1" minOccurs="0" name="LNum" type="s:string"/>
+					
+					<s:element maxOccurs="1" minOccurs="0" name="DisplayInfo" type="s:string"/>
+
+					<s:any maxOccurs="unbounded" minOccurs="0"/>
+
+				</s:sequence>
+
+				<s:attribute name="Hierarchy" type="s:string"/>
+
+			</s:complexType>
+
+			<s:complexType name="CrossProduct">
+
+
+				<s:sequence>
+
+					<s:element maxOccurs="unbounded" minOccurs="0" name="Members" type="s3:Members"/>
+
+				</s:sequence>
+
+				<s:attribute name="Size" type="s:int" use="required"/>
+
+			</s:complexType>
+
+			<s:complexType name="Members">
+
+				<s:sequence>
+
+					<s:element maxOccurs="unbounded" minOccurs="0" name="Member" type="s3:Member"/>
+
+				</s:sequence>
+
+
+				<s:attribute name="Hierarchy" type="s:string"/>
+
+			</s:complexType>
+
+			<s:complexType name="Row">
+
+				<s:sequence>
+
+					<s:any maxOccurs="unbounded" minOccurs="0"/>
+
+				</s:sequence>
+
+			</s:complexType>
+
+			<s:complexType name="OlapInfo">
+
+				<s:sequence>
+
+
+					<s:element maxOccurs="1" minOccurs="0" name="CubeInfo" type="s3:CubeInfo"/>
+
+					<s:element maxOccurs="1" minOccurs="0" name="AxesInfo" type="s3:AxesInfo"/>
+
+					<s:element maxOccurs="1" minOccurs="0" name="CellInfo" type="s3:CellInfo"/>
+
+				</s:sequence>
+
+			</s:complexType>
+
+			<s:complexType name="CubeInfo">
+
+				<s:sequence>
+
+					<s:element maxOccurs="unbounded" minOccurs="0" name="Cube" type="s3:Cube"/>
+
+				</s:sequence>
+
+
+			</s:complexType>
+
+			<s:complexType name="Cube">
+
+				<s:sequence>
+
+					<s:element maxOccurs="1" minOccurs="0" name="CubeName" type="s:string"/>
+
+				</s:sequence>
+
+			</s:complexType>
+
+			<s:complexType name="AxesInfo">
+
+				<s:sequence>
+
+					<s:element maxOccurs="unbounded" minOccurs="0" name="AxisInfo" type="s3:AxisInfo"/>
+
+
+				</s:sequence>
+
+			</s:complexType>
+
+			<s:complexType name="AxisInfo">
+
+				<s:sequence>
+
+					<s:element maxOccurs="unbounded" minOccurs="0" name="HierarchyInfo" type="s3:HierarchyInfo"/>
+
+				</s:sequence>
+
+				<s:attribute name="name" type="s:string"/>
+
+			</s:complexType>
+
+			<s:complexType name="HierarchyInfo">
+
+
+				<s:sequence>
+
+					<s:any maxOccurs="unbounded" minOccurs="0"/>
+
+				</s:sequence>
+
+				<s:attribute name="name" type="s:string"/>
+
+			</s:complexType>
+
+			<s:complexType name="CellInfo">
+
+				<s:sequence>
+
+					<s:any maxOccurs="unbounded" minOccurs="0"/>
+
+				</s:sequence>
+
+
+			</s:complexType>
+
+		</s:schema>
+
+		<s:schema elementFormDefault="qualified" targetNamespace="urn:schemas-microsoft-com:xml-analysis:empty">
+
+			<s:import namespace="http://www.w3.org/2001/XMLSchema"/>
+
+			<s:element name="root" type="s4:ResultXmlRoot"/>
+
+			<s:complexType name="ResultXmlRoot">
+
+				<s:sequence>
+
+					<s:element maxOccurs="1" minOccurs="0" ref="s:schema"/>
+
+					<s:choice maxOccurs="unbounded" minOccurs="0">
+
+
+						<s:element maxOccurs="1" minOccurs="0" name="CellData" type="s4:CellData"/>
+
+						<s:element maxOccurs="1" minOccurs="0" name="Axes" type="s4:Axes"/>
+
+						<s:element maxOccurs="1" minOccurs="0" name="row" type="s4:Row"/>
+
+						<s:element maxOccurs="1" minOccurs="0" name="OlapInfo" type="s4:OlapInfo"/>
+
+					</s:choice>
+
+				</s:sequence>
+
+			</s:complexType>
+
+			<s:complexType name="CellData">
+
+				<s:sequence>
+
+
+					<s:element maxOccurs="unbounded" minOccurs="0" name="Cell" type="s4:Cell"/>
+
+				</s:sequence>
+
+			</s:complexType>
+
+			<s:complexType name="Cell">
+
+				<s:sequence>
+				
+					<s:element maxOccurs="1" minOccurs="0" name="Value" type="s:double"/>
+					
+
+					<s:any maxOccurs="unbounded" minOccurs="0"/>
+
+				</s:sequence>
+
+				<s:attribute name="CellOrdinal" type="s:int" use="required"/>
+
+			</s:complexType>
+
+
+			<s:complexType name="Axes">
+
+				<s:sequence>
+
+					<s:element maxOccurs="unbounded" minOccurs="0" name="Axis" type="s4:Axis"/>
+
+				</s:sequence>
+
+			</s:complexType>
+
+			<s:complexType name="Axis">
+
+				<s:sequence>
+
+					<s:choice maxOccurs="unbounded" minOccurs="0">
+
+						<s:element maxOccurs="1" minOccurs="0" name="Tuples" type="s4:Tuples"/>
+
+
+						<s:element maxOccurs="1" minOccurs="0" name="CrossProduct" type="s4:CrossProduct"/>
+
+					</s:choice>
+
+				</s:sequence>
+
+				<s:attribute name="name" type="s:string"/>
+
+			</s:complexType>
+
+			<s:complexType name="Tuples">
+
+				<s:sequence>
+
+					<s:element maxOccurs="unbounded" minOccurs="0" name="Tuple" type="s4:Tuple"/>
+
+				</s:sequence>
+
+
+			</s:complexType>
+
+			<s:complexType name="Tuple">
+
+				<s:sequence>
+
+					<s:element maxOccurs="unbounded" minOccurs="0" name="Member" type="s4:Member"/>
+
+				</s:sequence>
+
+			</s:complexType>
+
+			<s:complexType name="Member">
+
+				<s:sequence>
+				
+					<s:element maxOccurs="1" minOccurs="0" name="UName" type="s:string"/>
+					
+					<s:element maxOccurs="1" minOccurs="0" name="Caption" type="s:string"/>
+					
+					<s:element maxOccurs="1" minOccurs="0" name="LName" type="s:string"/>
+					
+					<s:element maxOccurs="1" minOccurs="0" name="LNum" type="s:string"/>
+					
+					<s:element maxOccurs="1" minOccurs="0" name="DisplayInfo" type="s:string"/>
+
+					<s:any maxOccurs="unbounded" minOccurs="0"/>
+
+
+				</s:sequence>
+
+				<s:attribute name="Hierarchy" type="s:string"/>
+
+			</s:complexType>
+
+			<s:complexType name="CrossProduct">
+
+				<s:sequence>
+
+					<s:element maxOccurs="unbounded" minOccurs="0" name="Members" type="s4:Members"/>
+
+				</s:sequence>
+
+				<s:attribute name="Size" type="s:int" use="required"/>
+
+			</s:complexType>
+
+
+			<s:complexType name="Members">
+
+				<s:sequence>
+
+					<s:element maxOccurs="unbounded" minOccurs="0" name="Member" type="s4:Member"/>
+
+				</s:sequence>
+
+				<s:attribute name="Hierarchy" type="s:string"/>
+
+			</s:complexType>
+
+			<s:complexType name="Row">
+
+				<s:sequence>
+
+					<s:any maxOccurs="unbounded" minOccurs="0"/>
+
+
+				</s:sequence>
+
+			</s:complexType>
+
+			<s:complexType name="OlapInfo">
+
+				<s:sequence>
+
+					<s:element maxOccurs="1" minOccurs="0" name="CubeInfo" type="s4:CubeInfo"/>
+
+					<s:element maxOccurs="1" minOccurs="0" name="AxesInfo" type="s4:AxesInfo"/>
+
+					<s:element maxOccurs="1" minOccurs="0" name="CellInfo" type="s4:CellInfo"/>
+
+				</s:sequence>
+
+			</s:complexType>
+
+
+			<s:complexType name="CubeInfo">
+
+				<s:sequence>
+
+					<s:element maxOccurs="unbounded" minOccurs="0" name="Cube" type="s4:Cube"/>
+
+				</s:sequence>
+
+			</s:complexType>
+
+			<s:complexType name="Cube">
+
+				<s:sequence>
+
+					<s:element maxOccurs="1" minOccurs="0" name="CubeName" type="s:string"/>
+
+				</s:sequence>
+
+
+			</s:complexType>
+
+			<s:complexType name="AxesInfo">
+
+				<s:sequence>
+
+					<s:element maxOccurs="unbounded" minOccurs="0" name="AxisInfo" type="s4:AxisInfo"/>
+
+				</s:sequence>
+
+			</s:complexType>
+
+			<s:complexType name="AxisInfo">
+
+				<s:sequence>
+
+					<s:element maxOccurs="unbounded" minOccurs="0" name="HierarchyInfo" type="s4:HierarchyInfo"/>
+
+
+				</s:sequence>
+
+				<s:attribute name="name" type="s:string"/>
+
+			</s:complexType>
+
+			<s:complexType name="HierarchyInfo">
+
+				<s:sequence>
+
+					<s:any maxOccurs="unbounded" minOccurs="0"/>
+
+				</s:sequence>
+
+				<s:attribute name="name" type="s:string"/>
+
+			</s:complexType>
+
+
+			<s:complexType name="CellInfo">
+
+				<s:sequence>
+
+					<s:any maxOccurs="unbounded" minOccurs="0"/>
+
+				</s:sequence>
+
+			</s:complexType>
+
+		</s:schema>
+
+		<s:schema elementFormDefault="qualified" targetNamespace="http://schemas.xmlsoap.org/ws/2002/04/secext">
+
+			<s:element name="Security" type="s5:Security"/>
+
+			<s:complexType name="Security">
+
+
+				<s:sequence>
+
+					<s:element maxOccurs="1" minOccurs="0" name="UsernameToken" type="s5:UsernameTokenElement"/>
+
+				</s:sequence>
+
+				<s:anyAttribute/>
+
+			</s:complexType>
+
+			<s:complexType name="UsernameTokenElement">
+
+				<s:sequence>
+
+					<s:element maxOccurs="1" minOccurs="0" name="Username" type="s:string"/>
+
+					<s:element maxOccurs="1" minOccurs="0" name="Password" type="s:string"/>
+
+
+				</s:sequence>
+
+			</s:complexType>
+
+		</s:schema>
+
+	</wsdl:types>
+
+	<wsdl:message name="ExecuteSoapIn">
+
+		<wsdl:part element="tns:Execute" name="parameters"/>
+
+	</wsdl:message>
+
+	<wsdl:message name="ExecuteSoapOut">
+
+		<wsdl:part element="tns:ExecuteResponse" name="parameters"/>
+
+
+	</wsdl:message>
+
+	<wsdl:message name="ExecuteBeginSession">
+
+		<wsdl:part element="tns:BeginSession" name="BeginSession"/>
+
+	</wsdl:message>
+
+	<wsdl:message name="ExecuteSession">
+
+		<wsdl:part element="tns:Session" name="Session"/>
+
+	</wsdl:message>
+
+	<wsdl:message name="ExecuteEndSession">
+
+		<wsdl:part element="tns:EndSession" name="EndSession"/>
+
+
+	</wsdl:message>
+
+	<wsdl:message name="ExecuteSecurity">
+
+		<wsdl:part element="s5:Security" name="Security"/>
+
+	</wsdl:message>
+
+	<wsdl:message name="DiscoverSoapIn">
+
+		<wsdl:part element="tns:Discover" name="parameters"/>
+
+	</wsdl:message>
+
+	<wsdl:message name="DiscoverSoapOut">
+
+		<wsdl:part element="tns:DiscoverResponse" name="parameters"/>
+
+
+	</wsdl:message>
+
+	<wsdl:message name="DiscoverBeginSession">
+
+		<wsdl:part element="tns:BeginSession" name="BeginSession"/>
+
+	</wsdl:message>
+
+	<wsdl:message name="DiscoverSession">
+
+		<wsdl:part element="tns:Session" name="Session"/>
+
+	</wsdl:message>
+
+	<wsdl:message name="DiscoverEndSession">
+
+		<wsdl:part element="tns:EndSession" name="EndSession"/>
+
+
+	</wsdl:message>
+
+	<wsdl:message name="DiscoverSecurity">
+
+		<wsdl:part element="s5:Security" name="Security"/>
+
+	</wsdl:message>
+
+	<wsdl:portType name="XmlaWebServiceSoap">
+
+		<wsdl:operation name="Execute">
+
+			<wsdl:input message="tns:ExecuteSoapIn"/>
+
+			<wsdl:output message="tns:ExecuteSoapOut"/>
+
+		</wsdl:operation>
+
+
+		<wsdl:operation name="Discover">
+
+			<wsdl:input message="tns:DiscoverSoapIn"/>
+
+			<wsdl:output message="tns:DiscoverSoapOut"/>
+
+		</wsdl:operation>
+
+	</wsdl:portType>
+
+	<wsdl:binding name="XmlaWebServiceSoap" type="tns:XmlaWebServiceSoap">
+
+		<soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+
+		<wsdl:operation name="Execute">
+
+			<soap:operation soapAction="urn:schemas-microsoft-com:xml-analysis:Execute" style="document"/>
+
+
+			<wsdl:input>
+
+				<soap:body use="literal"/>
+
+				<soap:header message="tns:ExecuteBeginSession" part="BeginSession" use="literal"/>
+
+				<soap:header message="tns:ExecuteSession" part="Session" use="literal"/>
+
+				<soap:header message="tns:ExecuteEndSession" part="EndSession" use="literal"/>
+
+				<soap:header message="tns:ExecuteSecurity" part="Security" use="literal"/>
+
+			</wsdl:input>
+
+			<wsdl:output>
+
+				<soap:body use="literal"/>
+
+
+				<soap:header message="tns:ExecuteSession" part="Session" use="literal"/>
+
+			</wsdl:output>
+
+		</wsdl:operation>
+
+		<wsdl:operation name="Discover">
+
+			<soap:operation soapAction="urn:schemas-microsoft-com:xml-analysis:Discover" style="document"/>
+
+			<wsdl:input>
+
+				<soap:body use="literal"/>
+
+				<soap:header message="tns:DiscoverBeginSession" part="BeginSession" use="literal"/>
+
+				<soap:header message="tns:DiscoverSession" part="Session" use="literal"/>
+
+
+				<soap:header message="tns:DiscoverEndSession" part="EndSession" use="literal"/>
+
+				<soap:header message="tns:DiscoverSecurity" part="Security" use="literal"/>
+
+			</wsdl:input>
+
+			<wsdl:output>
+
+				<soap:body use="literal"/>
+
+				<soap:header message="tns:DiscoverSession" part="Session" use="literal"/>
+
+			</wsdl:output>
+
+		</wsdl:operation>
+
+	</wsdl:binding>
+
+
+	<wsdl:binding name="XmlaWebServiceSoap12" type="tns:XmlaWebServiceSoap">
+
+		<soap12:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+
+		<wsdl:operation name="Execute">
+
+			<soap12:operation soapAction="urn:schemas-microsoft-com:xml-analysis:Execute" style="document"/>
+
+			<wsdl:input>
+
+				<soap12:body use="literal"/>
+
+				<soap12:header message="tns:ExecuteBeginSession" part="BeginSession" use="literal"/>
+
+				<soap12:header message="tns:ExecuteSession" part="Session" use="literal"/>
+
+				<soap12:header message="tns:ExecuteEndSession" part="EndSession" use="literal"/>
+
+
+				<soap12:header message="tns:ExecuteSecurity" part="Security" use="literal"/>
+
+			</wsdl:input>
+
+			<wsdl:output>
+
+				<soap12:body use="literal"/>
+
+				<soap12:header message="tns:ExecuteSession" part="Session" use="literal"/>
+
+			</wsdl:output>
+
+		</wsdl:operation>
+
+		<wsdl:operation name="Discover">
+
+			<soap12:operation soapAction="urn:schemas-microsoft-com:xml-analysis:Discover" style="document"/>
+
+
+			<wsdl:input>
+
+				<soap12:body use="literal"/>
+
+				<soap12:header message="tns:DiscoverBeginSession" part="BeginSession" use="literal"/>
+
+				<soap12:header message="tns:DiscoverSession" part="Session" use="literal"/>
+
+				<soap12:header message="tns:DiscoverEndSession" part="EndSession" use="literal"/>
+
+				<soap12:header message="tns:DiscoverSecurity" part="Security" use="literal"/>
+
+			</wsdl:input>
+
+			<wsdl:output>
+
+				<soap12:body use="literal"/>
+
+
+				<soap12:header message="tns:DiscoverSession" part="Session" use="literal"/>
+
+			</wsdl:output>
+
+		</wsdl:operation>
+
+	</wsdl:binding>
+
+	<wsdl:service name="XmlaWebService">
+
+		<wsdl:port binding="tns:XmlaWebServiceSoap" name="XmlaWebServiceSoap">
+
+			<soap:address location="http://209.139.232.176:8282/M4OXmlaWebService/services/XmlaWebService"/>
+
+		</wsdl:port>
+
+		<wsdl:port binding="tns:XmlaWebServiceSoap12" name="XmlaWebServiceSoap12">
+
+
+			<soap12:address location="http://209.139.232.176:8282/M4OXmlaWebService/services/XmlaWebService"/>
+
+		</wsdl:port>
+
+	</wsdl:service>
+
+</wsdl:definitions>

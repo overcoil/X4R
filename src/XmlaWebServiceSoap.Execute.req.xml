@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope
+  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+  xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:ns2="urn:schemas-microsoft-com:xml-analysis:rowset"
+  xmlns:ns4="urn:schemas-microsoft-com:xml-analysis:mddataset"
+  xmlns:ns5="urn:schemas-microsoft-com:xml-analysis:empty"
+  xmlns:ns3="http://www.w3.org/2001/XMLSchema"
+  xmlns:ns6="http://schemas.xmlsoap.org/ws/2002/04/secext"
+  xmlns:ns1="urn:schemas-microsoft-com:xml-analysis">
+ <SOAP-ENV:Header>
+  <ns1:BeginSession>
+  </ns1:BeginSession>
+  <ns1:EndSession SessionId="">
+  </ns1:EndSession>
+  <ns1:Session SessionId="">
+  </ns1:Session>
+  <ns6:Security>
+   <ns6:UsernameToken>
+    <ns6:Username></ns6:Username>
+    <ns6:Password></ns6:Password>
+   </ns6:UsernameToken>
+  </ns6:Security>
+ </SOAP-ENV:Header>
+ <SOAP-ENV:Body>
+   <ns1:Execute>
+    <ns1:Command>
+     <ns1:Statement></ns1:Statement>
+    </ns1:Command>
+    <ns1:Properties>
+     <ns1:PropertyList>
+
+
+     </ns1:PropertyList>
+    </ns1:Properties>
+    <ns1:Parameters>
+     <!-- extensibility element(s) -->
+
+    </ns1:Parameters>
+   </ns1:Execute>
+
+ </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

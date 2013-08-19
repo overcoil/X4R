@@ -1,0 +1,11 @@
+Package: X4R
+Type: Package
+Title: XMLA/MDX cube tool for R
+Version: 1.0.1
+Date: 2013-08-19
+Author: George Chow; Norris Lee
+Maintainer: George Chow <georgec@simba.com>
+Description: Enable R to source data from an OLAP cube via XMLA by specifying an MDX query.
+License: GPL-2 | GPL-3
+Depends: Rcpp (>= 0.10.4)
+LinkingTo: Rcpp

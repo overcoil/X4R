@@ -1,0 +1,3 @@
+useDynLib(X4R)
+export(xmlaConnect, xmlaClose, xmlaExecute, xmlaDiscover)
+S3method(print, XMLA)
