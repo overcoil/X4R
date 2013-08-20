@@ -361,7 +361,10 @@ RcppExport SEXP RXMLADiscover(SEXP handle, SEXP request, SEXP rRestrictionsStrin
 		}
 
 		rapidxml::xml_node<char> *schemaElementNode = rowNode->first_node()->first_node();
-		std::vector<char *> rows = discoverResponse.return_->ns2__root->__union_ResultXmlRoot->row;
+		std::vector<char *> rows;
+		if (discoverResponse.return_->ns2__root->__union_ResultXmlRoot != NULL) {
+			rows = discoverResponse.return_->ns2__root->__union_ResultXmlRoot->row;
+		}
 		Rcpp::DataFrame resultDataFrame;
 		Rcpp::CharacterVector colNames;
 		char *colName;
@@ -369,12 +372,7 @@ RcppExport SEXP RXMLADiscover(SEXP handle, SEXP request, SEXP rRestrictionsStrin
 		while(schemaElementNode != NULL) {
 			colName = schemaElementNode->first_attribute("name")->value();
 			colNames.push_back(colName);
-			if (schemaElementNode->first_attribute("type") != 0) {
-				rowSetParseData(rows, &resultDataFrame, colName, true);
-			}
-			else {
-				rowSetParseData(rows, &resultDataFrame, colName, false);
-			}
+			rowSetParseData(rows, &resultDataFrame, colName, true);
 			schemaElementNode = schemaElementNode->next_sibling();
 		}
 		resultDataFrame.attr("names") = colNames;
