@@ -733,6 +733,8 @@ A commercial use license is available from Genivia, Inc., contact@genivia.com
 //    #include <windows.h>
 //    #include "stdsoap2.h"
 // c) or compile with the -DWIN32_LEAN_AND_MEAN switch
+#undef Realloc
+#undef Free
 # include <winsock2.h> // Visual Studio 2005 users: install Platform SDK (R2)
 # include <ws2tcpip.h>
 // # define _WSPIAPI_COUNTOF // DEV NOTE: enble to fix problems with VC6
