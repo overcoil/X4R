@@ -125,6 +125,7 @@ void parseKeyValuePairs(std::string *kvString, std::vector<char *>& vector)
 		std::string *xmlProperty = new std::string;
 		*xmlProperty = "<" + key + ">" + value + "</" + key + ">";
 		vector.push_back(strdup(xmlProperty->c_str()));
+		delete xmlProperty;
 	}
 	while (frontIndex1 != std::string::npos && frontIndex2 != std::string::npos);
 }
@@ -175,6 +176,7 @@ void rowSetParseData(std::vector<char *> rows, Rcpp::DataFrame *resultDataFrame,
 			dimension.push_back(NA_STRING);
 		else if (!found && !isChar)
 			dataColumn.push_back(NA_REAL);
+		delete[] parseText;
 	}
 	if (isChar)
 		resultDataFrame->push_back(dimension);
