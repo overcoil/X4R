@@ -8,3 +8,14 @@ I didn't find out where to put my attributions for the code that I used so I'll 
 2. RapidXML
 
 
+Installation
+
+1. Open R (either RStudio, command line or other). Install Rcpp package. Exit from R.
+   install.packages("Rcpp")
+2. Clone github project or download prebuild binaries.
+3. Build/Install X4R project.
+   From Source: R CMD INSTALL X4R
+   From Binary: R CMD INSTALL <binary name>
+Done.
+
+If you only need the 32-bit version, run R CMD INSTALL with --no-multiarch flag.
