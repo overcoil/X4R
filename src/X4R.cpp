@@ -400,9 +400,7 @@ RcppExport SEXP RXMLADiscover(SEXP handle, SEXP request, SEXP rRestrictionsStrin
 	return Rcpp::wrap(false);
 }
 
-RcppExport SEXP RXMLAValidHandle(SEXP handle)
+RcppExport SEXP RXMLAIsNullHandle(SEXP handle)
 {
-	Rcpp::XPtr<XMLAHandle> ptr(handle);
-
-	return Rcpp::wrap(ptr && TYPEOF(ptr) == EXTPTRSXP);
+	return Rcpp::wrap(!R_ExternalPtrAddr(handle));
 }

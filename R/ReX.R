@@ -41,5 +41,10 @@ print.XMLA <- function(x, ...)
 
 xmlaValidHandle <- function(handle)
 {
-	inherits(handle, "XMLA") && is.integer(handle) && .Call("RXMLAValidHandle", attr(handle, "Pointer"))
+	inherits(handle, "XMLA") && is.integer(handle) && !is.null.externalptr(handle)
+}
+
+is.null.externalptr <- function(handle) {
+	stopifnot(is(attr(handle,"Pointer"), "externalptr"))
+	.Call("RXMLAIsNullHandle", attr(handle, "Pointer"))
 }

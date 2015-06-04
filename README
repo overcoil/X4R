@@ -10,12 +10,16 @@ I didn't find out where to put my attributions for the code that I used so I'll 
 
 Installation
 
-1. Open R (either RStudio, command line or other). Install Rcpp package. Exit from R.
-   install.packages("Rcpp")
-2. Clone github project or download prebuild binaries.
-3. Build/Install X4R project.
-   From Source: R CMD INSTALL X4R
-   From Binary: R CMD INSTALL <binary name>
+1. Download R. (version 3.1.1 or later)
+2. Download Rtools. Ensure the path points to Rtools bin and Rtools gcc bin
+3. Clone the github project. (i.e. $git clone https://github.com/overcoil/X4R)
+4. Launch R and install Rcpp package (i.e. > install.packages("Rcpp")). Ensure that it can be loaded and no error messages show up (i.e. > library(Rcpp)).
+5. Exit from R and compile and install the package by executing the command $R CMD INSTALL X4R (this should be done in the directory containing X4R)
+If you run into an error message about not being able to find Rcpp, set the environment variable R_LIBS_USER to point to the location of the R libraries (this can be found by going to R and running the command > .libPaths())
 Done.
 
-If you only need the 32-bit version, run R CMD INSTALL with --no-multiarch flag.
+If you only need the 32-bit version, run $R CMD INSTALL with --no-multiarch flag.
+
+
+Usage:
+See manual for more information regarding each function. The manual can be found within the "man" directory of the project.

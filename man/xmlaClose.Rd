@@ -12,7 +12,7 @@
 	\item{handle}{Connection object of class "XMLA" returned by \code{xmlaConnect}.}
 }
 \details{
-    \code{xmlaClose} closes a session to the XMLA service at the specified url and frees up resources.
+    \code{xmlaClose} closes a session to the XMLA service of the specified connection handle and frees up resources.
 }
 \value{
 	\item{TRUE}{if session successfully closed.}

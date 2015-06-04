@@ -1,4 +1,6 @@
 PKG_CPPFLAGS=-I.
+PKG_LIBS+= -L${R_LIBS_USER}/Rcpp/libs/i386
+PKG_LIBS+= -L${R_LIBS_USER}/Rcpp/libs/x64
 PKG_LIBS+= -L${R_HOME}/library/Rcpp/libs/i386
 PKG_LIBS+= -L${R_HOME}/library/Rcpp/libs/x64
 PKG_LIBS+= -lRcpp
