@@ -67,9 +67,14 @@ RcppExport SEXP RXMLAConnect(SEXP connection, SEXP uid, SEXP pw)
 		ret.attr("Pointer") = ptr;
 		std::cout << "Connection successful" << std::endl;
 		return ret;
+	} else {
+		std::cerr << "Connection failed" << std::endl;
 	}
-	char * errorMessage = service.fault->faultstring;
-	std::cerr << errorMessage << std::endl;
+	std::cout << "service.fault: " << service.fault << std::endl;
+	if (service.fault != NULL) {
+		char * errorMessage = service.fault->faultstring;
+		std::cerr << errorMessage << std::endl;
+	}
 	return Rcpp::wrap(false);
 }
 
@@ -105,8 +110,10 @@ RcppExport SEXP RXMLAClose(SEXP handle)
 		return Rcpp::wrap(true);
 	}
 	R_ClearExternalPtr(ptr);
-	char * errorMessage = service.fault->faultstring;
-	std::cerr << errorMessage << std::endl;
+	if (service.fault != NULL) {
+		char * errorMessage = service.fault->faultstring;
+		std::cerr << errorMessage << std::endl;
+	}
 	return Rcpp::wrap(false);
 }
 
@@ -305,8 +312,10 @@ RcppExport SEXP RXMLAExecute(SEXP handle, SEXP query, SEXP rPropertiesString)
 		return Rcpp::wrap(true);
 	}
 	else {
-		char * errorMessage = service.fault->detail->__any;
-		std::cerr << errorMessage << std::endl;
+		if (service.fault != NULL) {
+			char * errorMessage = service.fault->detail->__any;
+			std::cerr << errorMessage << std::endl;
+		}
 	}
 	service.destroy();
 	return Rcpp::wrap(false);
@@ -383,15 +392,15 @@ RcppExport SEXP RXMLADiscover(SEXP handle, SEXP request, SEXP rRestrictionsStrin
 	}
 
 	else {
-		std::cerr << service.fault->faultstring << std::endl;
+		if (service.fault != NULL) {
+			std::cerr << service.fault->faultstring << std::endl;
+		}
 	}
 	service.destroy();
 	return Rcpp::wrap(false);
 }
 
-RcppExport SEXP RXMLAValidHandle(SEXP handle)
+RcppExport SEXP RXMLAIsNullHandle(SEXP handle)
 {
-	Rcpp::XPtr<XMLAHandle> ptr(handle);
-
-	return Rcpp::wrap(ptr && TYPEOF(ptr) == EXTPTRSXP);
+	return Rcpp::wrap(!R_ExternalPtrAddr(handle));
 }
